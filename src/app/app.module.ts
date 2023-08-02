@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './common-components/header/header.component';
 import { CartPageComponent } from './common-components/cart-page/cart-page.component';
 import { ProductsComponent } from './common-components/products/products.component';
-import { ServiceComponent } from './common-service/service/service.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +13,9 @@ import { ServiceComponent } from './common-service/service/service.component';
     HeaderComponent,
     CartPageComponent,
     ProductsComponent,
-    ServiceComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
