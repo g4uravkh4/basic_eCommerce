@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './common-components/header/header.component';
 import { CartPageComponent } from './common-components/cart-page/cart-page.component';
 import { ProductsComponent } from './common-components/products/products.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgPipesModule } from 'ngx-pipes';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,14 @@ import { ProductsComponent } from './common-components/products/products.compone
     CartPageComponent,
     ProductsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    NgPipesModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
