@@ -10,3 +10,12 @@
     top: 22px;
     color: blue;
 }
+
+.item img {
+    width: 64px;
+}
+
+.item {
+    margin: 0px 15px;
+    text-align: center;
+}
