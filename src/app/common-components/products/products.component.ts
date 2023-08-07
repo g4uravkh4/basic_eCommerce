@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 import { CommonServiceService } from 'src/app/services/common-service.service';
 
 @Component({
@@ -8,11 +9,22 @@ import { CommonServiceService } from 'src/app/services/common-service.service';
 })
 export class ProductsComponent implements OnInit {
   public productList: any;
-  constructor(private service: CommonServiceService) {}
+  constructor(
+    private service: CommonServiceService,
+    private cartS: CartService
+  ) {}
 
   ngOnInit(): void {
     this.service.getProduct().subscribe((res) => {
       this.productList = res;
+
+      this.productList.forEach((a: any) => {
+        Object.assign(a, { quantity: 1, total: a.price });
+      });
     });
+  }
+
+  addtoCart(item: any) {
+    this.cartS.addtoCart(item);
   }
 }
