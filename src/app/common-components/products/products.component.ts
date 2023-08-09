@@ -9,6 +9,7 @@ import { CommonServiceService } from 'src/app/services/common-service.service';
 })
 export class ProductsComponent implements OnInit {
   public productList: any;
+  searchKey: string = '';
   constructor(
     private service: CommonServiceService,
     private cartS: CartService
@@ -21,6 +22,9 @@ export class ProductsComponent implements OnInit {
       this.productList.forEach((a: any) => {
         Object.assign(a, { quantity: 1, total: a.price });
       });
+    });
+    this.cartS.search.subscribe((value: any) => {
+      this.searchKey = value;
     });
   }
 

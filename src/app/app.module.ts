@@ -9,6 +9,7 @@ import { ProductsComponent } from './common-components/products/products.compone
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgPipesModule } from 'ngx-pipes';
+import { FilterPipe } from './shared/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NgPipesModule } from 'ngx-pipes';
     HeaderComponent,
     CartPageComponent,
     ProductsComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,13 @@
 
       <strong>Flipkart</strong>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search products" />
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="searchTerm"
+          (keyup)="search()"
+          placeholder="Search products"
+        />
       </div>
       <span class="fas fa-search search-icon"></span>
     </div>
