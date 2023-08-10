@@ -9,6 +9,7 @@ import { CommonServiceService } from 'src/app/services/common-service.service';
 })
 export class ProductsComponent implements OnInit {
   public productList: any;
+  public filterCategory: any;
   searchKey: string = '';
   constructor(
     private service: CommonServiceService,
@@ -18,10 +19,18 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.service.getProduct().subscribe((res) => {
       this.productList = res;
+      this.filterCategory = res;
 
       this.productList.forEach((a: any) => {
+        if (
+          a.category === "women's clothing" ||
+          a.category === "men's clothing"
+        ) {
+          a.category = 'fashion';
+        }
         Object.assign(a, { quantity: 1, total: a.price });
       });
+      console.log(this.productList);
     });
     this.cartS.search.subscribe((value: any) => {
       this.searchKey = value;
@@ -30,5 +39,13 @@ export class ProductsComponent implements OnInit {
 
   addtoCart(item: any) {
     this.cartS.addtoCart(item);
+  }
+
+  filter(category: string) {
+    this.filterCategory = this.productList.filter((a: any) => {
+      if (a.category == category || category == '') {
+        return a;
+      }
+    });
   }
 }
